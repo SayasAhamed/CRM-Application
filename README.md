@@ -506,7 +506,7 @@ crm-app/screenshots/
 ### File Name:
 
 ```bash
-crm-app\screenshots\login-page.png
+login-page.png
 ```
 
 ### Screenshot Should Include:
@@ -524,7 +524,7 @@ crm-app\screenshots\login-page.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\dashboard-overview.png
+dashboard-overview.png
 ```
 
 ### Screenshot Should Include:
@@ -541,7 +541,7 @@ crm-app\screenshots\dashboard-overview.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\leads-page.png
+leads-page.png
 ```
 
 ### Screenshot Should Include:
@@ -558,11 +558,11 @@ crm-app\screenshots\leads-page.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\add-lead-form.png
+add-lead-form.png
 ```
 
 ```bash
-crm-app\screenshots\add-lead-form-1.png
+add-lead-form-1.png
 ```
 
 ### Screenshot Should Include:
@@ -579,19 +579,19 @@ crm-app\screenshots\add-lead-form-1.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\lead-details-popup.png
+lead-details-popup.png
 ```
 
 ```bash
-crm-app\screenshots\lead-details-popup1.png
+lead-details-popup1.png
 ```
 
 ```bash
-crm-app\screenshots\lead-details-popup2.png
+lead-details-popup2.png
 ```
 
 ```bash
-crm-app\screenshots\lead-details-popup3.png
+lead-details-popup3.png
 ```
 
 ### Screenshot Should Include:
@@ -608,7 +608,7 @@ crm-app\screenshots\lead-details-popup3.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\lead-notes.png
+lead-notes.png
 ```
 
 ### Screenshot Should Include:
@@ -626,11 +626,11 @@ crm-app\screenshots\lead-notes.png
 ### File Name:
 
 ```bash
-crm-app\screenshots\export-system.png
+export-system.png
 ```
 
 ```bash
-crm-app\screenshots\export-system2.png
+export-system2.png
 ```
 
 ### Screenshot Should Include:
@@ -668,11 +668,19 @@ After adding images into screenshots folder, add this section:
 
 ![Add Lead](screenshots/add-lead-form.png)
 
+![Add Lead](screenshots/add-lead-form1.png)
+
 ---
 
 ## Lead Details Popup
 
 ![Lead Details](screenshots/lead-details-popup.png)
+
+![Lead Details](screenshots/lead-details-popup1.png)
+
+![Lead Details](screenshots/lead-details-popup2.png)
+
+![Lead Details](screenshots/lead-details-popup3.png)
 
 ---
 
@@ -685,6 +693,8 @@ After adding images into screenshots folder, add this section:
 ## Export System
 
 ![Export](screenshots/export-system.png)
+
+![Export](screenshots/export-system2.png)
 ```
 
 ---
