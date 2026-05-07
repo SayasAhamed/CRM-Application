@@ -2,36 +2,103 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
-class LeadBase(BaseModel):
-    name: str
-    company: str
+
+# =========================================
+# LOGIN
+# =========================================
+
+class UserLogin(BaseModel):
+
     email: str
+
+    password: str
+
+
+# =========================================
+# LEAD CREATE
+# =========================================
+
+class LeadCreate(BaseModel):
+
+    name: str
+
+    company: str
+
+    email: str
+
     phone: str
+
     source: str
-    salesperson: str
+
+    assigned_salesperson: str
+
     status: str
-    deal_value: float
 
-class LeadCreate(LeadBase):
-    pass
+    estimated_value: float
 
-class LeadResponse(LeadBase):
+
+# =========================================
+# LEAD RESPONSE
+# =========================================
+
+class LeadResponse(BaseModel):
+
     id: int
-    created_at: datetime
+
+    name: str
+
+    company: str
+
+    email: str
+
+    phone: str
+
+    source: str
+
+    assigned_salesperson: str
+
+    status: str
+
+    estimated_value: float
+
+    created_at: Optional[datetime] = None
+
+    updated_at: Optional[datetime] = None
 
     class Config:
-        orm_mode = True
 
+        from_attributes = True
+
+
+# =========================================
+# NOTE CREATE
+# =========================================
 
 class NoteCreate(BaseModel):
-    content: str
-    created_by: str
+
     lead_id: int
 
+    content: str
 
-class NoteResponse(NoteCreate):
+    created_by: str
+
+
+# =========================================
+# NOTE RESPONSE
+# =========================================
+
+class NoteResponse(BaseModel):
+
     id: int
-    created_at: datetime
+
+    lead_id: int
+
+    content: str
+
+    created_by: str
+
+    created_at: Optional[datetime] = None
 
     class Config:
-        orm_mode = True
+
+        from_attributes = True
