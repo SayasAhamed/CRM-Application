@@ -1,186 +1,49 @@
-# 🚀 AI-Powered CRM System
+# AI-Powered CRM System
 
-## 📖 Introduction
+<div align="center">
 
-This project is a modern full-stack CRM (Customer Relationship Management) system designed to help businesses manage leads, track customer interactions, organize sales pipelines, and monitor revenue performance through a clean and responsive dashboard.
+![CRM Banner](screenshots/dashboard-overview.png)
 
-The application allows users to securely manage customer leads from the beginning of the sales process until conversion. Users can create new leads, assign salespersons, update lead statuses, maintain lead notes, analyze revenue insights, and export lead data into Excel or CSV reports.
+### Modern Full-Stack CRM Application  
+### Built with React, FastAPI, SQLite & Tailwind CSS
 
-This CRM system is built using modern web technologies including React, Tailwind CSS, FastAPI, SQLAlchemy, and SQLite, with future-ready AI/ML integration capabilities for smart lead scoring and sales analytics.
-
-The system follows a SaaS-style responsive UI design and provides a professional dashboard experience similar to modern enterprise CRM platforms.
-
----
-
-# ⚡ How This CRM System Works
-
-The CRM workflow is designed around lead management and sales tracking.
-
-### 🔐 Step 1 — Create Admin
-
-Before accessing the CRM system for the first time, an admin account must be created using the backend route:
-
-```bash
-http://127.0.0.1:8000/auth/create-admin
-```
-
-This automatically creates the default admin account.
+</div>
 
 ---
 
-### 🔑 Step 2 — Login
+# Introduction
 
-The admin can log into the system using:
+The AI-Powered CRM System is a modern Customer Relationship Management platform designed to help businesses manage customer leads, track sales pipelines, organize communications, and monitor revenue analytics through a professional dashboard interface.
 
-```bash
-Email: admin@example.com
-Password: password123
-```
+This application provides a complete lead management workflow from customer acquisition to conversion tracking. Users can create leads, update lead statuses, assign salespersons, maintain lead notes, analyze business performance, and export reports into CSV and Excel formats.
 
-After successful login, users gain access to the CRM dashboard and lead management system.
+The system is developed using modern full-stack technologies and follows a clean SaaS-style UI architecture suitable for real-world CRM environments.
 
 ---
 
-### 👥 Step 3 — Manage Leads
+# Core Features
+
+## Authentication System
+
+- Admin Account Creation
+- Secure Login System
+- Protected Routes
+- Session-Based Access Protection
+- Logout Authentication Control
+
+---
+
+## Lead Management
 
 Users can:
 
-- Add new customer leads
-- Update existing lead information
-- Delete leads
-- Assign salespersons
-- Track lead statuses
-- Monitor estimated deal values
-
-Each lead stores important business information such as:
-
-- Customer Name
-- Company Name
-- Email Address
-- Phone Number
-- Lead Source
-- Assigned Salesperson
-- Deal Value
-- Status Tracking
-
----
-
-### 📝 Step 4 — Manage Notes
-
-Every lead supports its own note management system.
-
-Users can:
-
-- Add notes
-- Edit notes
-- Delete notes
-
-Each note contains:
-
-- Note Content
-- Created By
-- Created Date
-
-This helps track communication history and customer interactions.
-
----
-
-### 📊 Step 5 — Dashboard Analytics
-
-The dashboard automatically calculates:
-
-- Total Leads
-- Won Leads
-- Lost Leads
-- Qualified Leads
-- Contacted Leads
-- Revenue Pipeline
-- Closed Deal Revenue
-- Win/Loss Performance
-
-This helps businesses monitor sales performance in real time.
-
----
-
-### 🔍 Step 6 — Search & Filtering
-
-The CRM supports advanced filtering by:
-
-- Lead Status
-- Lead Source
-- Assigned Salesperson
-
-It also supports searching by:
-
-- Lead Name
-- Company Name
-- Email Address
-
----
-
-### 📁 Step 7 — Export Reports
-
-Users can export all lead information into:
-
-- CSV Reports
-- Excel Reports
-
-This allows businesses to generate offline reports and analytics.
-
----
-
-# 📌 Features
-
-## ✅ Authentication System
-
-- Admin Creation System
-- Login Authentication
-- Protected CRM Access
-- Session-based Authentication
-
----
-
-# 🔐 First Time Setup
-
-Before logging into the CRM for the first time, create the default admin account.
-
-Open browser:
-
-```bash
-http://127.0.0.1:8000/auth/create-admin
-```
-
-This route automatically creates the default admin user.
-
----
-
-## Default Admin Credentials
-
-### Email
-
-```bash
-admin@example.com
-```
-
-### Password
-
-```bash
-password123
-```
-
----
-
-# ✅ Lead Management
-
-Users can:
-
-- Add Leads
-- Update Leads
-- Delete Leads
-- Search Leads
-- Filter Leads
-- View Lead Details
-- Track Sales Progress
+-  Add Leads
+-  Update Leads
+-  Delete Leads
+-  Quick View Lead Details
+-  Search Leads
+-  Filter Leads
+-  Track Sales Status
 
 Each lead contains:
 
@@ -193,50 +56,33 @@ Each lead contains:
 - Status
 - Estimated Deal Value
 - Created Date
-- Last Updated Date
+- Updated Date
 
 ---
 
-# ✅ Lead Status Types
+## Lead Notes System
 
-- New
-- Contacted
-- Qualified
-- Proposal Sent
-- Won
-- Lost
+Each lead includes a dedicated notes section.
 
----
+### Features:
 
-# ✅ Lead Source Types
+- Add Notes
+- Edit Notes
+- Delete Notes
+- Timestamp Tracking
+- Created By Tracking
 
-- Website
-- Facebook
-- Instagram
-- Referral
-- Other
-
----
-
-# ✅ Lead Notes System
-
-Each lead supports notes with:
+Each note contains:
 
 - Note Content
 - Created By
 - Created Date
 
-Users can:
-
-- Add Notes
-- Update Notes
-- Delete Notes
-
 ---
 
-# ✅ Dashboard Analytics
+## Dashboard Analytics
 
-Dashboard includes:
+The dashboard automatically calculates:
 
 - Total Leads
 - New Leads
@@ -245,61 +91,42 @@ Dashboard includes:
 - Proposal Sent Leads
 - Won Leads
 - Lost Leads
-- Total Deal Value
-- Won Deal Value
-- Revenue Overview
-- Lead Performance Analytics
+- Total Revenue
+- Won Revenue
+- Sales Performance Metrics
 
 ---
 
-# ✅ Search & Filtering
+## Export System
 
-Supports filtering by:
+Export lead data into:
 
-- Lead Status
-- Lead Source
-- Assigned Salesperson
+- CSV Reports
+- Excel Reports
 
-Supports searching by:
+Useful for:
 
-- Lead Name
-- Company Name
-- Email Address
-
----
-
-# ✅ Export System
-
-Users can export lead data into:
-
-- CSV File
-- Excel File
+- Offline Reporting
+- Data Backup
+- Business Analytics
+- Client Reporting
 
 ---
 
-# ✅ Responsive Modern UI
+# AI/ML Future Scope
 
-- Full-width dashboard layout
-- Responsive CRM interface
-- Quick View popup system
-- Modern SaaS-style design
-- Tailwind CSS styling
-
----
-
-# 🧠 AI/ML Future Scope
-
-This project architecture supports future AI integration such as:
+This project architecture supports future AI integration features such as:
 
 - AI Lead Scoring
 - Lead Conversion Prediction
 - Revenue Forecasting
-- Smart Follow-up Recommendation
+- Smart Follow-up Suggestions
 - AI Sales Analytics
+- Customer Behavior Analysis
 
 ---
 
-# 🛠️ Technologies Used
+# Technologies Used
 
 ## Frontend
 
@@ -359,14 +186,12 @@ crm-app/
 # 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/YOUR_USERNAME/CRM-Application.git
 ```
 
 ---
 
 # 2️⃣ Backend Setup
-
-Navigate into backend folder:
 
 ```bash
 cd crm-app/backend
@@ -392,7 +217,7 @@ venv\Scripts\activate
 source venv/Scripts/activate
 ```
 
-Install backend dependencies:
+Install dependencies:
 
 ```bash
 pip install fastapi uvicorn sqlalchemy pydantic python-multipart pandas openpyxl
@@ -404,7 +229,7 @@ Run backend server:
 python -m uvicorn main:app --reload
 ```
 
-Backend runs at:
+Backend URL:
 
 ```bash
 http://127.0.0.1:8000
@@ -420,13 +245,13 @@ Open new terminal:
 cd crm-app/frontend
 ```
 
-Install frontend dependencies:
+Install packages:
 
 ```bash
 npm install
 ```
 
-Install React Icons:
+Install icons:
 
 ```bash
 npm install react-icons
@@ -438,7 +263,7 @@ Run frontend:
 npm run dev
 ```
 
-Frontend runs at:
+Frontend URL:
 
 ```bash
 http://localhost:5173
@@ -446,9 +271,37 @@ http://localhost:5173
 
 ---
 
-# 📊 API Endpoints
+# First Time Admin Setup
 
-# Leads API
+Before logging into the CRM system, create the default admin account.
+
+Open browser:
+
+```bash
+http://127.0.0.1:8000/auth/create-admin
+```
+
+---
+
+# Default Login Credentials
+
+## Email
+
+```bash
+admin@example.com
+```
+
+## Password
+
+```bash
+password123
+```
+
+---
+
+# API Endpoints
+
+## Leads API
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -459,7 +312,7 @@ http://localhost:5173
 
 ---
 
-# Notes API
+## Notes API
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -470,7 +323,7 @@ http://localhost:5173
 
 ---
 
-# Export API
+## Export API
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -479,200 +332,66 @@ http://localhost:5173
 
 ---
 
-# 🖼️ SCREENSHOTS SECTION
-
-# IMPORTANT ⚠️
-
-Create a folder named:
-
-```bash
-screenshots
-```
-
-inside root project directory.
-
-Example:
-
-```bash
-crm-app/screenshots/
-```
+# Application Screenshots
 
 ---
 
-# 📸 REQUIRED SCREENSHOTS
-
-## 1️⃣ Login Page
-
-### File Name:
-
-```bash
-login-page.png
-```
-
-### Screenshot Should Include:
-
-- Login form
-- Dark background
-- Email field
-- Password field
-- Login button
-
----
-
-## 2️⃣ Dashboard Overview
-
-### File Name:
-
-```bash
-dashboard-overview.png
-```
-
-### Screenshot Should Include:
-
-- Dashboard analytics cards
-- Revenue overview
-- Performance analytics
-- Full-width dashboard UI
-
----
-
-## 3️⃣ Leads Page
-
-### File Name:
-
-```bash
-leads-page.png
-```
-
-### Screenshot Should Include:
-
-- Leads table
-- Search filters
-- Status dropdowns
-- Export buttons
-
----
-
-## 4️⃣ Add Lead Form
-
-### File Name:
-
-```bash
-add-lead-form.png
-```
-
-```bash
-add-lead-form-1.png
-```
-
-### Screenshot Should Include:
-
-- Add lead form
-- Lead source dropdown
-- Save button
-- Status selector
-
----
-
-## 5️⃣ Lead Details Popup
-
-### File Name:
-
-```bash
-lead-details-popup.png
-```
-
-```bash
-lead-details-popup1.png
-```
-
-```bash
-lead-details-popup2.png
-```
-
-```bash
-lead-details-popup3.png
-```
-
-### Screenshot Should Include:
-
-- Quick View popup/modal
-- Lead detail cards
-- Close button
-- Notes section
-
----
-
-## 6️⃣ Notes System
-
-### File Name:
-
-```bash
-lead-notes.png
-```
-
-### Screenshot Should Include:
-
-- Add note
-- Edit note
-- Delete note
-- Note timestamps
-- Created By information
-
----
-
-## 7️⃣ Export System
-
-### File Name:
-
-```bash
-export-system.png
-```
-
-```bash
-export-system2.png
-```
-
-### Screenshot Should Include:
-
-- CSV Export
-- Excel Export
-- Download buttons
-
----
-
-# 🖼️ ADD SCREENSHOTS HERE
-
-After adding images into screenshots folder, add this section:
-
-```md
-## Login Page
+# Login Page
 
 ![Login Page](screenshots/login-page.png)
 
+### Includes:
+
+- Secure Login Form
+- Dark UI Theme
+- Responsive Layout
+- Authentication Access
+
 ---
 
-## Dashboard Overview
+# Dashboard Overview
 
 ![Dashboard](screenshots/dashboard-overview.png)
 
+### Includes:
+
+- Real-time CRM Analytics
+- Revenue Monitoring
+- Lead Statistics
+- Performance Overview
+
 ---
 
-## Leads Management
+# Leads Management Page
 
 ![Leads](screenshots/leads-page.png)
 
+### Includes:
+
+- Leads Table
+- Search Filters
+- Status Filtering
+- Export Buttons
+- Quick Actions
+
 ---
 
-## Add Lead Form
+# Add Lead Form
 
 ![Add Lead](screenshots/add-lead-form.png)
 
-![Add Lead](screenshots/add-lead-form1.png)
+![Add Lead Extra](screenshots/add-lead-form-1.png)
+
+### Includes:
+
+- Lead Creation Form
+- Lead Source Selection
+- Status Dropdown
+- Salesperson Assignment
 
 ---
 
-## Lead Details Popup
+# Lead Details Popup
 
 ![Lead Details](screenshots/lead-details-popup.png)
 
@@ -682,47 +401,68 @@ After adding images into screenshots folder, add this section:
 
 ![Lead Details](screenshots/lead-details-popup3.png)
 
+### Includes:
+
+- Quick View Popup
+- Customer Information
+- Notes Integration
+- Status Information
+
 ---
 
-## Notes System
+# Notes Management
 
 ![Notes](screenshots/lead-notes.png)
 
+### Includes:
+
+- Add Notes
+- Edit Notes
+- Delete Notes
+- Created By
+- Date Tracking
+
 ---
 
-## Export System
+# Export System
 
 ![Export](screenshots/export-system.png)
 
 ![Export](screenshots/export-system2.png)
-```
+
+### Includes:
+
+- CSV Export
+- Excel Export
+- Instant File Download
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
 - JWT Authentication
 - AI Lead Scoring
 - Email Notifications
-- Revenue Forecasting
-- Activity Timeline
-- Team Collaboration
 - Cloud Deployment
 - PostgreSQL Support
-- CRM Mobile Application
+- CRM Mobile App
+- Team Collaboration
+- Activity Timeline
+- Notification System
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 ## M.M. Sayas Ahamed
 
-- BICT Undergraduate
+- BICT(Hons) Undergraduate
 - Rajarata University of Sri Lanka
-- Full Stack & AI/ML Developer
+- Full Stack Developer
+- AI/ML Enthusiast
 
 ---
 
 # 📄 License
 
-This project is for educational and portfolio purposes.
+This project is developed for educational, portfolio, and learning purposes.
