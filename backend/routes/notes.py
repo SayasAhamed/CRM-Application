@@ -84,6 +84,37 @@ def create_note(
 
     return note
 
+# =========================================
+# UPDATE NOTE
+# =========================================
+
+@router.put("/{note_id}")
+def update_note(
+    note_id: int,
+    data: dict,
+    db: Session = Depends(get_db)
+):
+
+    note = db.query(Note).filter(
+        Note.id == note_id
+    ).first()
+
+    if not note:
+
+        raise HTTPException(
+            status_code=404,
+            detail="Note not found"
+        )
+
+    note.content = data["content"]
+
+    db.commit()
+
+    db.refresh(note)
+
+    return {
+        "message": "Note updated successfully"
+    }
 
 # =========================================
 # DELETE NOTE
@@ -112,3 +143,5 @@ def delete_note(
     return {
         "message": "Note deleted"
     }
+
+

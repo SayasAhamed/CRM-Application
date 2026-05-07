@@ -17,7 +17,7 @@ Base.metadata.create_all(bind=engine)
 
 
 # =========================================
-# CREATE FASTAPI APP
+# FASTAPI APP
 # =========================================
 
 app = FastAPI()
@@ -29,13 +29,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-
     allow_origins=["*"],
-
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 
@@ -45,16 +41,13 @@ app.add_middleware(
 # =========================================
 
 app.include_router(auth.router)
-
 app.include_router(leads.router)
-
 app.include_router(notes.router)
-
 app.include_router(export.router)
 
 
 # =========================================
-# ROOT ROUTE
+# ROOT
 # =========================================
 
 @app.get("/")

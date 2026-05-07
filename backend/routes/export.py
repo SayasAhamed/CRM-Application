@@ -1,20 +1,22 @@
 from fastapi import APIRouter, Depends
-from fastapi.responses import FileResponse
-
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from database import SessionLocal
-
 from models.models import Lead
 
-import pandas as pd
-
+import csv
+import io
 
 router = APIRouter(
     prefix="/export",
     tags=["Export"]
 )
 
+
+# =========================================
+# DATABASE CONNECTION
+# =========================================
 
 def get_db():
 
@@ -38,40 +40,62 @@ def export_csv(
 
     leads = db.query(Lead).all()
 
-    data = []
+    output = io.StringIO()
 
+    writer = csv.writer(output)
+
+    # HEADER
+    writer.writerow([
+        "ID",
+        "Name",
+        "Company",
+        "Email",
+        "Phone",
+        "Source",
+        "Assigned Salesperson",
+        "Status",
+        "Estimated Value",
+        "Created At",
+        "Updated At",
+    ])
+
+    # DATA
     for lead in leads:
 
-        data.append({
-            "ID": lead.id,
-            "Name": lead.name,
-            "Company": lead.company,
-            "Email": lead.email,
-            "Phone": lead.phone,
-            "Source": lead.source,
-            "Assigned Salesperson": lead.assigned_salesperson,
-            "Status": lead.status,
-            "Estimated Value": lead.deal_value,
-            "Created At": lead.created_at,
-            "Updated At": lead.updated_at
-        })
+        writer.writerow([
+            lead.id,
+            lead.name,
+            lead.company,
+            lead.email,
+            lead.phone,
+            lead.source,
+            lead.assigned_salesperson,
+            lead.status,
+            lead.estimated_value,
+            lead.created_at,
+            lead.updated_at,
+        ])
 
-    df = pd.DataFrame(data)
+    output.seek(0)
 
-    file_name = "leads.csv"
-
-    df.to_csv(file_name, index=False)
-
-    return FileResponse(
-        path=file_name,
-        filename=file_name,
-        media_type="text/csv"
+    return StreamingResponse(
+        iter([output.getvalue()]),
+        media_type="text/csv",
+        headers={
+            "Content-Disposition":
+            "attachment; filename=leads.csv"
+        }
     )
 
 
 # =========================================
 # EXPORT EXCEL
 # =========================================
+
+from fastapi.responses import StreamingResponse
+from openpyxl import Workbook
+import io
+
 
 @router.get("/excel")
 def export_excel(
@@ -80,32 +104,76 @@ def export_excel(
 
     leads = db.query(Lead).all()
 
-    data = []
+    workbook = Workbook()
+
+    sheet = workbook.active
+
+    sheet.title = "Leads"
+
+
+    # =========================================
+    # HEADER
+    # =========================================
+
+    headers = [
+        "ID",
+        "Name",
+        "Company",
+        "Email",
+        "Phone",
+        "Source",
+        "Assigned Salesperson",
+        "Status",
+        "Estimated Value",
+        "Created At",
+        "Updated At",
+    ]
+
+    sheet.append(headers)
+
+
+    # =========================================
+    # DATA
+    # =========================================
 
     for lead in leads:
 
-        data.append({
-            "ID": lead.id,
-            "Name": lead.name,
-            "Company": lead.company,
-            "Email": lead.email,
-            "Phone": lead.phone,
-            "Source": lead.source,
-            "Assigned Salesperson": lead.assigned_salesperson,
-            "Status": lead.status,
-            "Estimated Value": lead.deal_value,
-            "Created At": lead.created_at,
-            "Updated At": lead.updated_at
-        })
+        sheet.append([
+            lead.id,
+            lead.name,
+            lead.company,
+            lead.email,
+            lead.phone,
+            lead.source,
+            lead.assigned_salesperson,
+            lead.status,
+            lead.estimated_value,
+            str(lead.created_at),
+            str(lead.updated_at),
+        ])
 
-    df = pd.DataFrame(data)
 
-    file_name = "leads.xlsx"
+    # =========================================
+    # SAVE TO MEMORY
+    # =========================================
 
-    df.to_excel(file_name, index=False)
+    stream = io.BytesIO()
 
-    return FileResponse(
-        path=file_name,
-        filename=file_name,
-        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    workbook.save(stream)
+
+    stream.seek(0)
+
+
+    # =========================================
+    # DOWNLOAD RESPONSE
+    # =========================================
+
+    return StreamingResponse(
+        stream,
+        media_type=
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={
+            "Content-Disposition":
+            "attachment; filename=leads.xlsx"
+        }
     )
